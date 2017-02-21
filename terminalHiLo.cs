@@ -7,7 +7,7 @@ namespace terminalHiLo
 
 		public static void Main(string[] args)
 		{
-
+			//Set up variables
 			int score = 0;
 			int newNum;
 			int num = 50;
@@ -21,12 +21,21 @@ namespace terminalHiLo
 			{
 
 				Console.WriteLine("Please enter your guess: ");
+				
+				//Read guesses
 				guess = Console.ReadLine();
+				while((guess != "hi") && (guess != "lo"))
+				{
+					Console.WriteLine("That's not a valid guess :(");
+					guess = Console.ReadLine();
+				}
 
-
+				//Generate random number
 				Random rnd = new Random();
 				newNum = rnd.Next(100);
 
+
+				//Check the guesses
 				if(newNum >  num && guess == "hi")
 				{
 					correct = true;
@@ -44,15 +53,13 @@ namespace terminalHiLo
 
 				}
 
+
 				else
 				{
-
 					correct = false;
 					Console.WriteLine("Incorrect!");
 					Console.WriteLine("The number was: " + newNum);
-
 				}
-
 				
 
 				num = newNum;
@@ -60,7 +67,7 @@ namespace terminalHiLo
 
 			}
 
-
+			//Display their score
 			Console.WriteLine("Your score was: " + score);
 
 		}
